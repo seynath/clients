@@ -36,7 +36,7 @@ function Home() {
 
         <div className="container">
           <p>All Posts</p>
-          <table class="table">
+          <table className="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -48,9 +48,9 @@ function Home() {
             </thead>
             <tbody>
               {posts.map((post, index) => (
-                <tr>
+                <tr key={index}>
                   <th scope="row">{index + 1}</th>
-                  <td><Link to={`/post/${posts._id}`} style={{textDecoration:"none",color:"black"}}>{post.topic}</Link></td>
+                  <td><Link to={`/post/${post._id}`} style={{textDecoration:"none",color:"black"}}>{post.topic}</Link></td>
                   <td>{post.description}</td>
                   <td>{post.postCategory}</td>
 
@@ -62,7 +62,7 @@ function Home() {
                     <Link to={`/edit/${post._id}`} className="btn btn-warning">
                       <i className="fas fa-edit"></i>&nbsp;Edit
                     </Link>
-                    &nbsp;
+                    &nbsp; 
                     <a className="btn btn-danger" href="/delete">
                       <i className="far fa-trash-alt"></i>&nbsp;Delete
                     </a>
